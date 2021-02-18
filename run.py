@@ -21,7 +21,7 @@ def check():
 if __name__ == '__main__':
     while True:
         if not check():
-            with open(LOG_PATH, 'w', encoding='utf-8') as log_f:
+            with open(LOG_PATH, 'a', encoding='utf-8') as log_f:
                 log_f.write('gateway ping failed on {}, shutdown\n'.format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())))
             os.system('shutdown now')
         time.sleep(PERIOD)
