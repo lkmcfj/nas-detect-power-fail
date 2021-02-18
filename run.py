@@ -1,7 +1,7 @@
 import os
 import time
 import subprocess
-PERIOD = 60
+PERIOD = 30
 RETRY = 5
 GATEWAY_ADDR = '192.168.1.1'
 LOG_PATH = 'auto-shutdown.log'
@@ -23,5 +23,5 @@ if __name__ == '__main__':
         if not check():
             with open(LOG_PATH, 'a', encoding='utf-8') as log_f:
                 log_f.write('gateway ping failed on {}, shutdown\n'.format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())))
-            os.system('shutdown now')
+            os.system('poweroff')
         time.sleep(PERIOD)
